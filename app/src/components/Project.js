@@ -19,10 +19,10 @@ class Project extends React.Component {
 export default Relay.createContainer(Project, {
   fragments: {
     project: variables => Relay.QL`
-        fragment on Project {
-            uuid,
-            title
-        }
+      fragment on Project {
+          uuid,
+          title
+      }
     `
   }
 });
