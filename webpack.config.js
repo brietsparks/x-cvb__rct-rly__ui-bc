@@ -22,7 +22,12 @@ var config = {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015'],
-          plugins: ['transform-runtime', 'transform-class-properties', ROOT_DIR + '/build/babelRelayPlugin']
+          plugins: [
+            'transform-runtime',
+            'transform-class-properties',
+            ROOT_DIR + '/build/babelRelayPlugin',
+            'transform-object-rest-spread'
+          ]
         }
       }
     ]

@@ -8,8 +8,13 @@ class Projects extends React.Component {
     console.log(this.props);
 
     let projects = this.props.projects.edges.map(edge => {
-      console.log(edge.node);
-      return <Project key={edge.node.__dataID__} project={edge.node}/>
+      return (
+        <Project
+          key={edge.node.__dataID__}
+          project={edge.node}
+          depth={this.props.relay.variables.depth}
+        />
+      );
     });
 
     return (
@@ -22,12 +27,15 @@ class Projects extends React.Component {
 }
 
 export default Relay.createContainer(Projects, {
+  initialVariables: {
+    depth: 0
+  },
   fragments: {
     projects: variables => Relay.QL`
       fragment on ProjectConnection {
         edges {
           node {
-            ${Project.getFragment('project')}
+            ${Project.getFragment('project', {depth: variables.depth})}
           }
         }
       }

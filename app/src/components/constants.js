@@ -1,0 +1,2 @@
+export const PROJECT_MAX_NEST_DEPTH = 4;
+export const PROJECT_INITIAL_NEST_DEPTH = 1;
